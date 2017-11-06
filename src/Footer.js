@@ -17,8 +17,15 @@ export default () => (
       </strong>
       <br />
       <strong>
-        🍻{" "}
-        <a href="twitter.com/rafalfilipek" target="_blank">
+        <span role="img" aria-label="Beer">
+          🍻
+        </span>{" "}
+        <a
+          href="twitter.com/rafalfilipek"
+          ithout
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           Rafał
         </a>
       </strong>
