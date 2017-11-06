@@ -48,43 +48,54 @@ export default graphql(query, {
     "setOverlay",
     false
   )(({ loading, entries, hasMore, loadNextPage, overlay, setOverlay }) => (
-    <Provider>
-      <Flex wrap mx="auto" column width={[1, 0.8]} p={16}>
+    <Provider
+      theme={{
+        font: "'Amatic SC', cursive;"
+      }}
+    >
+      <div>
         {overlay && (
           <div>
             <Fixed top right bottom left onClick={() => setOverlay(false)} />
-            <Overlay style={{ zIndex: 1000 }}>
+            <Overlay style={{ zIndex: 1000 }} onClick={() => setOverlay(false)}>
               <Image src={overlay} />
             </Overlay>
           </div>
         )}
-        <Logo />
-        {entries && (
-          <InfiniteScroll
-            pageStart={0}
-            hasMore={hasMore}
-            loader={
-              <Flex p={16} justify="center">
-                <Spinner name="pacman" color="#bb00cc" />
-              </Flex>
-            }
-            loadMore={loadNextPage}
-          >
-            <Flex wrap>
-              {entries.map(entry => (
-                <Entry
-                  setOverlay={setOverlay}
-                  key={entry.id}
-                  id={entry.id}
-                  entry={entry}
-                />
-              ))}
+        <Flex wrap mx="auto" column width={[1, 0.8]} p={16}>
+          <Logo />
+          {!entries && (
+            <Flex p={16} justify="center">
+              <Spinner name="pacman" color="#bb00cc" />
             </Flex>
-          </InfiniteScroll>
-        )}
-        <Divider color="#bb00cc" w={1} />
-        <Footer />
-      </Flex>
+          )}
+          {entries && (
+            <InfiniteScroll
+              pageStart={0}
+              hasMore={hasMore}
+              loader={
+                <Flex p={16} justify="center">
+                  <Spinner name="pacman" color="#bb00cc" />
+                </Flex>
+              }
+              loadMore={loadNextPage}
+            >
+              <Flex wrap>
+                {entries.map(entry => (
+                  <Entry
+                    setOverlay={setOverlay}
+                    key={entry.id}
+                    id={entry.id}
+                    entry={entry}
+                  />
+                ))}
+              </Flex>
+            </InfiniteScroll>
+          )}
+          <Divider color="#bb00cc" w={1} />
+          <Footer />
+        </Flex>
+      </div>
     </Provider>
   ))
 );

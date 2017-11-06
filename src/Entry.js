@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 import {
   Box,
@@ -8,13 +9,22 @@ import {
   Border,
   Relative,
   Absolute,
-  Link
+  Link,
+  Truncate
 } from "rebass";
 
 import Stars from "./Stars";
 
+const Image = styled(BackgroundImage)`
+  transition: all 0.25s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+
 export default ({ entry, setOverlay }) => (
-  <Box width={[1, 1 / 2, 1 / 3, 1 / 4]}>
+  <Box width={[1, 1 / 2, 1 / 3, 1 / 3, 1 / 4]}>
     <Card m={8} p={16}>
       <Relative>
         <Link href={entry.url} target="_blank">
@@ -25,7 +35,7 @@ export default ({ entry, setOverlay }) => (
           </Absolute>
         </Link>
 
-        <BackgroundImage
+        <Image
           ratio={1}
           src={entry.thumbnail}
           onClick={() => setOverlay(entry.thumbnail)}
@@ -33,12 +43,12 @@ export default ({ entry, setOverlay }) => (
         <Border top bottom mt={8}>
           <Text
             p={2}
+            f={5}
             center
-            bold
             color="fuschia"
             style={{ textDecoration: "none" }}
           >
-            <span>{entry.signature}</span>
+            <Truncate bold>{entry.signature}</Truncate>
           </Text>
         </Border>
         <Stars />
