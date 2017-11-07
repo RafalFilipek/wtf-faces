@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Border, Heading, Text, Lead, Small } from "rebass";
+import { Border, Heading, Text, Lead } from "rebass";
 
 const Name = styled(Text)`
   font-family: "Bungee", cursive;
