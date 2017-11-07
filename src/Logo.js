@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Border, Heading, Text } from "rebass";
+import { Border, Heading, Text, Lead, Small } from "rebass";
 
 const Name = styled(Text)`
   font-family: "Bungee", cursive;
@@ -22,5 +22,13 @@ export default () => (
         ✂️
       </span>
     </Heading>
+    <Lead f={[3, 4, 5, 6]} center mt={16}>
+      <em>
+        To uczucie gdy chcesz wrócić do krawędzi twarzy twojego ulubionego
+        celebryty ale internet jest jak ulotna mgła chwil.
+      </em>
+      <br />
+      - Paulo Coelho
+    </Lead>
   </Border>
 );

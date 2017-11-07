@@ -51,7 +51,7 @@ export default ({ entry, setOverlay }) => (
             <Truncate bold>{entry.signature}</Truncate>
           </Text>
         </Border>
-        <Stars />
+        {false && <Stars />}
       </Relative>
     </Card>
   </Box>
