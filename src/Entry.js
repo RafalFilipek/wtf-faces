@@ -27,7 +27,7 @@ export default ({ entry, setOverlay }) => (
   <Box width={[1, 1 / 2, 1 / 3, 1 / 3, 1 / 4]}>
     <Card m={8} p={16}>
       <Relative>
-        <Link href={entry.url} target="_blank">
+        <Link href={entry.url} target="_blank" rel="noopener">
           <Absolute top right>
             <span role="img" aria-label="Show me what you got!">
               🔗
@@ -37,7 +37,10 @@ export default ({ entry, setOverlay }) => (
 
         <Image
           ratio={1}
-          src={entry.thumbnail}
+          src={`http://i.wpimg.pl/412x/${entry.thumbnail.replace(
+            "https://",
+            ""
+          )}`}
           onClick={() => setOverlay(entry.thumbnail)}
         />
         <Border top bottom mt={8}>
