@@ -21,7 +21,7 @@ export default () => (
           🍻
         </span>{" "}
         <a
-          href="twitter.com/rafalfilipek"
+          href="https://twitter.com/rafalfilipek"
           ithout
           rel="noopener noreferrer"
           target="_blank"
