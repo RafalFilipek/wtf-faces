@@ -37,7 +37,7 @@ export default ({ entry, setOverlay }) => (
 
         <Image
           ratio={1}
-          src={`http://i.wpimg.pl/412x/${entry.thumbnail.replace(
+          src={`https://i.wpimg.pl/412x/${entry.thumbnail.replace(
             "https://",
             ""
           )}`}
